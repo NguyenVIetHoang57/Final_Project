@@ -608,14 +608,14 @@ div.pagination span.current {
 				if(isset($_POST['name']))
 
             {
-			$billnumber=mysql_real_escape_string($_POST['billnumber']);
-			$autoid=mysql_real_escape_string($_POST['id']);
-			$supplier=mysql_real_escape_string($_POST['supplier']);
-			$address=mysql_real_escape_string($_POST['address1']);
-			$contact1=mysql_real_escape_string($_POST['contact1']);
-			$contact2=mysql_real_escape_string($_POST['contact2']);
-			$payment=mysql_real_escape_string($_POST['payment']);
-			$balance=mysql_real_escape_string($_POST['balance']);
+			$billnumber=($_POST['billnumber']);
+			$autoid=($_POST['id']);
+			$supplier=($_POST['supplier']);
+			$address=($_POST['address1']);
+			$contact1=($_POST['contact1']);
+			$contact2=($_POST['contact2']);
+			$payment=($_POST['payment']);
+			$balance=($_POST['balance']);
 				$temp_balance = $db->queryUniqueValue("SELECT balance FROM supplier_details WHERE supplier_name='$supplier'");
 				$temp_balance = (int) $temp_balance + (int) $balance;
 				$db->execute("UPDATE supplier_details SET balance=$temp_balance WHERE supplier_name='$supplier'");
@@ -623,15 +623,15 @@ div.pagination span.current {
 		  	$selected_date=strtotime( $selected_date );
 			$mysqldate = date( 'Y-m-d H:i:s', $selected_date );
 			$due=$mysqldate;
-			$mode=mysql_real_escape_string($_POST['mode']);
-			$description=mysql_real_escape_string($_POST['description']);
+			$mode=($_POST['mode']);
+			$description=($_POST['description']);
 			
 			$namet=$_POST['name'];
 			$quantityt=$_POST['quanitity'];
 			$bratet=$_POST['brate'];
 			$sratet=$_POST['srate'];
 			$totalt=$_POST['total'];
-			$subtotal=mysql_real_escape_string($_POST['subtotal']);
+			$subtotal=($_POST['subtotal']);
 			
 			$username=$_SESSION['username'];
 			
